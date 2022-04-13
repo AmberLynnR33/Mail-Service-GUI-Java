@@ -46,7 +46,7 @@ public class MailServiceGUI extends JPanel{
     private JButton clearNum = new JButton("Clear"); //clears getWeight if error
     private JButton enterNum = new JButton("Enter"); //enters value in getWeight
 
-    //initialize GUI
+    //constructor
     public MailServiceGUI(MailService newTransaction){
 
         super();
@@ -56,7 +56,7 @@ public class MailServiceGUI extends JPanel{
         this.registerControllers();
         this.update();
 
-    }
+    }//end of constructor
 
     //look of components in JPanel
     private void layoutPanel(){
