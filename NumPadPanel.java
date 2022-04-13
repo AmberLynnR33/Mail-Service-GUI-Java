@@ -114,6 +114,12 @@ public class NumPadPanel extends JPanel{
 
     }//end of register controllers
 
+    //update features of Panel
+    public void update(){
+
+
+    }//end of update
+
 
 
     /*public static void main(String [] args){
