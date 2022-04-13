@@ -9,12 +9,15 @@ import java.awt.*;
 
 public class NumPadPanel extends JPanel{
 
+    private MailService service;
+
     //declare components
     private JPanel numPadPanel = new JPanel(); //overall panel
     private JPanel numPad = new JPanel();
-    private BoxLayout numPadPanelLayout;
+    private BorderLayout numPadPanelLayout;
     private GridLayout numPadLayout;
-    private JTextField getWeight = new JTextField(1); //allows user to enter weight
+
+    private JLabel getWeight = new JLabel(); //allows user to enter weight
 
     private JButton select1 = new JButton("1"); //number 1
     private JButton select2 = new JButton("2"); //number 2
@@ -25,6 +28,7 @@ public class NumPadPanel extends JPanel{
     private JButton select7 = new JButton("7"); //number 7
     private JButton select8 = new JButton("8"); //number 8
     private JButton select9 = new JButton("9"); //number 9
+    private JButton select0 = new JButton("0"); //number 0
     private JButton selectDecimal = new JButton("."); //decimal for package weight accuracy
 
     private JButton clearNum = new JButton("Clear"); //clears getWeight if error
@@ -47,13 +51,14 @@ public class NumPadPanel extends JPanel{
         this.numPad.add(this.select7);
         this.numPad.add(this.select8);
         this.numPad.add(this.select9);
-        this.numPad.add(this.clearNum);
+        this.numPad.add(this.select0);
         this.numPad.add(this.selectDecimal);
-        this.numPad.add(this.enterNum);
+        this.numPad.add(this.clearNum);
 
         //add components to overall number pad
-        this.numPadPanel.add(this.getWeight);
-        this.numPadPanel.add(this.numPad);
+        this.numPadPanel.add(this.getWeight, BorderLayout.NORTH);
+        this.numPadPanel.add(this.numPad, BorderLayout.WEST);
+        this.numPadPanel.add(this.enterNum, BorderLayout.CENTER);
 
         return(this.numPadPanel);
 
@@ -67,7 +72,7 @@ public class NumPadPanel extends JPanel{
         this.numPad.setLayout(this.numPadLayout);
 
         //layout of overall panel
-        this.numPadPanelLayout = new BoxLayout(this.numPadPanel, BoxLayout.Y_AXIS);
+        this.numPadPanelLayout = new BorderLayout();
         this.numPadPanel.setLayout(this.numPadPanelLayout);
 
     }//end of setLayout()
@@ -76,9 +81,7 @@ public class NumPadPanel extends JPanel{
     private void setAttributes(){
 
         //size
-        this.numPadPanel.setPreferredSize(new Dimension(300,350));;
-        this.numPad.setPreferredSize(new Dimension(300,250));
-        this.getWeight.setPreferredSize(new Dimension(300,100));
+        this.getWeight.setPreferredSize(new Dimension(this.numPadPanel.getWidth(),100));
 
     }//end of setAttributes
 
@@ -89,7 +92,31 @@ public class NumPadPanel extends JPanel{
 
     }//end of getNumPadPanel
 
-    public static void main(String [] args){
+    public void registerControllers(){
+
+        NumPadController controller = new NumPadController(this.service, this.select1, this.select2, this.select3, this.select4, this.select5, this.select6, this.select7, this.select8, this.select9, this.select0, this.enterNum, this.clearNum, this.selectDecimal);
+        
+        //add action listeners to JComponents
+        this.select1.addActionListener(controller);
+        this.select2.addActionListener(controller);
+        this.select3.addActionListener(controller);
+        this.select4.addActionListener(controller);
+        this.select5.addActionListener(controller);
+        this.select6.addActionListener(controller);
+        this.select7.addActionListener(controller);
+        this.select8.addActionListener(controller);
+        this.select9.addActionListener(controller);
+        this.select0.addActionListener(controller);
+
+        this.selectDecimal.addActionListener(controller);
+        this.enterNum.addActionListener(controller);
+        this.clearNum.addActionListener(controller);
+
+    }//end of register controllers
+
+
+
+    /*public static void main(String [] args){
 
         NumPadPanel b = new NumPadPanel();
 
@@ -103,6 +130,6 @@ public class NumPadPanel extends JPanel{
         a.setContentPane(b.createPanel());
         a.setVisible(true);
         
-    }
+    }*/
     
 }//end of class
