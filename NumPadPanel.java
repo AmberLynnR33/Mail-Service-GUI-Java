@@ -117,10 +117,43 @@ public class NumPadPanel extends JPanel{
     //update features of Panel
     public void update(){
 
+        if(service.getNumPadEnable()){
+
+            this.select0.setEnabled(true);
+            this.select1.setEnabled(true);
+            this.select2.setEnabled(true);
+            this.select3.setEnabled(true);
+            this.select4.setEnabled(true);
+            this.select5.setEnabled(true);
+            this.select6.setEnabled(true);
+            this.select7.setEnabled(true);
+            this.select8.setEnabled(true);
+            this.select9.setEnabled(true);
+            this.selectDecimal.setEnabled(true);
+            this.clearNum.setEnabled(true);
+            this.enterNum.setEnabled(true);
+
+        }else{
+
+            this.select0.setEnabled(false);
+            this.select1.setEnabled(false);
+            this.select2.setEnabled(false);
+            this.select3.setEnabled(false);
+            this.select4.setEnabled(false);
+            this.select5.setEnabled(false);
+            this.select6.setEnabled(false);
+            this.select7.setEnabled(false);
+            this.select8.setEnabled(false);
+            this.select9.setEnabled(false);
+            this.selectDecimal.setEnabled(false);
+            this.clearNum.setEnabled(false);
+            this.enterNum.setEnabled(false);
+
+        }//fi
+
+        this.getWeight.setText(service.getWeightText());
 
     }//end of update
-
-
 
     /*public static void main(String [] args){
 

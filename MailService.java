@@ -33,6 +33,9 @@ public class MailService extends Object{
 
     private boolean weightScaleSection; //making entering weight visible to user
     private boolean buttonEnable; //enable or disable location buttons
+    private boolean numPadEnable; //enable or disable number pad
+
+    private StringBuffer weightText; //what shows up on weight screen
 
     private PrintWriter recipt; //prints recipt
 
@@ -45,6 +48,7 @@ public class MailService extends Object{
         this.generateLocationNames();
         this.weightScaleSection = false;
         this.buttonEnable = true;
+        this.numPadEnable = false;
         this.errorMessage = " ";
 
     }//mailService
@@ -141,6 +145,19 @@ public class MailService extends Object{
 
     }//getButtonEnable
 
+    //accessor method to check if number pad buttons should be enabled
+    public boolean getNumPadEnable(){
+
+        return this.numPadEnable;
+
+    }//end of getNumPadEnable
+
+    public String getWeightText(){
+
+        return(this.weightText.toString());
+
+    }//end of getWeightText
+
     //accessor method to check if error message should be displayed
     public String getErrorMessage(){
 
@@ -212,11 +229,33 @@ public class MailService extends Object{
 
     }//setButtonEnable
 
-    //clears text field if necessary
-    public void setTextField(boolean reset){
+    //enables or disables number pad
+    public void setNumPadEnable(boolean isEnabled){
 
         //set instance variable
-        this.clearTextField = reset;
+        this.numPadEnable = isEnabled;
+
+        //update GUI
+        this.view.update();
+
+    }//end of setNumPadEnable
+
+    //clears text field if necessary
+    public void setWeightText(String toAppend){
+
+        //clears what is on screen if asked. Otherwise, adds to what is on screen
+        if(toAppend.equals("clear")){
+
+            //clear
+            this.weightText.setLength(0);
+            this.weightText.append("");
+
+        }else{
+
+            //set instance variable
+            this.weightText.append(toAppend);
+
+        }//fi
 
         //update GUI
         this.view.update();

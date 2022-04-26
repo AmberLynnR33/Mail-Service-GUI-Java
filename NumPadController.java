@@ -43,39 +43,60 @@ public class NumPadController implements ActionListener{
         //what to do when a button is pressed
         if(e.getSource() == this.s0){
 
+            this.service.setWeightText("0");
+
 
         }else if(e.getSource() == this.s1){
 
+            this.service.setWeightText("1");
 
         }else if(e.getSource() == this.s2){
 
+            this.service.setWeightText("2");
 
         }else if(e.getSource() == this.s3){
 
+            this.service.setWeightText("3");
 
         }else if(e.getSource() == this.s4){
 
+            this.service.setWeightText("4");
 
         }else if(e.getSource() == this.s5){
 
+            this.service.setWeightText("5");
 
         }else if(e.getSource() == this.s6){
 
+            this.service.setWeightText("6");
 
         }else if(e.getSource() == this.s7){
 
+            this.service.setWeightText("7");
 
         }else if(e.getSource() == this.s8){
 
+            this.service.setWeightText("8");
 
         }else if(e.getSource() == this.s9){
 
+            this.service.setWeightText("9");
 
         }else if(e.getSource() == this.decimal){
 
+            this.service.setWeightText(".");
+
+        }else if(e.getSource() == this.cancel){
+
+            this.service.setWeightText("clear");
+
+        }else if(e.getSource() == this.enter){
+
+            this.service.setNumPadEnable(false);
+
+
         }else{
         }//fi
-
 
     }//end of actionPerformed
     
