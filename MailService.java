@@ -20,7 +20,7 @@ public class MailService extends Object{
 
     private String[] locations = new String[5]; //name of all locations mail to
 
-    private String errorMessage; //error message if user inputs invalid info
+    private String instructionMsg; //message instructing user of what to do, or any errors
     private boolean clearTextField; //clears text field if program reset
 
     private int location; //location user is shipping to
@@ -31,7 +31,6 @@ public class MailService extends Object{
     private double withTax; //tax in sending letter
     private double total; //total cost to send letter with tax
 
-    private boolean weightScaleSection; //making entering weight visible to user
     private boolean buttonEnable; //enable or disable location buttons
     private boolean numPadEnable; //enable or disable number pad
 
@@ -46,10 +45,8 @@ public class MailService extends Object{
         this.generateBaseCost();
         this.generateShippingCosts();
         this.generateLocationNames();
-        this.weightScaleSection = false;
         this.buttonEnable = true;
         this.numPadEnable = false;
-        this.errorMessage = " ";
 
     }//mailService
 
@@ -131,13 +128,6 @@ public class MailService extends Object{
 
     }//getWeight
 
-    //accessor method to check if weight section should be visible
-    public boolean getWeightScaleVisible(){
-
-        return this.weightScaleSection;
-
-    }//getWeightScaleVisible
-
     //accessor method to check if location buttons should be visible
     public boolean getButtonEnable(){
 
@@ -159,9 +149,9 @@ public class MailService extends Object{
     }//end of getWeightText
 
     //accessor method to check if error message should be displayed
-    public String getErrorMessage(){
+    public String getInstruction(){
 
-        return this.errorMessage;
+        return this.instructionMsg;
 
     }//getErrorMessage
 
@@ -187,18 +177,22 @@ public class MailService extends Object{
     }//setWeight
 
     //set error message to be displayed if user inputs invalid data, or error with program
-    public void setError(int errorCode){
+    public void setInstructionMsg(int code){
 
-        //error message to be displayed. If no error, set to blank
-        switch(errorCode){
+        //sets what instruction to display on screen
+        switch(code){
+
             case 1:
-                this.errorMessage = "Please enter a valid weight and try again.";
-                break;
+                this.instructionMsg = "Welcome to ADP. Please enter the destination your package is being sent to.";
+
             case 2:
-                this.errorMessage = "Processing error. Please try again";
-                break;
+                this.instructionMsg = "Please enter the package weight, with the panel on the right.";
+
+            case 3:
+                this.instructionMsg = "Please enter a valid weight and try again.";
+            
             default:
-                this.errorMessage = " ";
+                this.instructionMsg = "Processing error. Please try again.";
 
         }//hctiws
 
@@ -206,17 +200,6 @@ public class MailService extends Object{
         this.view.update();
 
     }//setError
-
-    //makes entering weight appear or disappear based on argument input
-    public void setWeightScaleVisible(boolean isVisible){
-
-        //set instance variable
-        this.weightScaleSection = isVisible;
-
-        //update GUI
-        this.view.update();
-
-    }//setWeightScaleVisible
 
     //makes location buttons to appear or disappear based on argument input
     public void setButtonEnable(boolean isVisible){
@@ -334,7 +317,7 @@ public class MailService extends Object{
         }catch(IOException g){
 
             //gives error if PrintWriter throws error
-            this.setError(2);
+            this.setInstructionMsg(4);
             this.view.update();
 
         }//yrt       

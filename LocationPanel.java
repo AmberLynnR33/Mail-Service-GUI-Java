@@ -123,9 +123,6 @@ public class LocationPanel extends JPanel{
     //updates components as needed
     public void update(){
 
-        //sets section of GUI visible or invisible
-        this.cancel.setVisible(this.service.getWeightScaleVisible());
-
         //enable or disable location buttons
         this.b1.setEnabled(this.service.getButtonEnable());
         this.b2.setEnabled(this.service.getButtonEnable());
@@ -134,7 +131,7 @@ public class LocationPanel extends JPanel{
         this.b5.setEnabled(this.service.getButtonEnable());
 
         //display current instruction
-        this.instruction.setText(this.service.getErrorMessage());
+        this.instruction.setText(this.service.getInstruction());
 
     }//end of update
     

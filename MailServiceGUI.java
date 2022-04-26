@@ -20,9 +20,11 @@ public class MailServiceGUI extends JPanel{
 
         super();
         this.service = newTransaction;
+        this.service.setGUI(this);
         this.locationPane = new LocationPanel(newTransaction);
-        this.numPadPane = new NumPadPanel(newTransaction); 
-        this.update();       
+        this.numPadPane = new NumPadPanel(newTransaction);
+        this.service.setInstructionMsg(1); 
+        this.update();
 
     }//end of constructor
 

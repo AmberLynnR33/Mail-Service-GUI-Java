@@ -39,7 +39,10 @@ public class LocationPanelController implements ActionListener {
 
             //disable buttons and enable weight input
             this.service.setButtonEnable(false);
-            this.service.setWeightScaleVisible(true);
+            this.service.setNumPadEnable(true);
+
+            //next instruction
+            this.service.setInstructionMsg(2);
 
         }else if(e.getSource() == b2){
 
@@ -48,7 +51,10 @@ public class LocationPanelController implements ActionListener {
 
             //disable buttons and enable weight input
             this.service.setButtonEnable(false);
-            this.service.setWeightScaleVisible(true);
+            this.service.setNumPadEnable(true);
+
+            //next instruction
+            this.service.setInstructionMsg(2);
 
         }else if(e.getSource() == b3){
 
@@ -57,7 +63,10 @@ public class LocationPanelController implements ActionListener {
 
             //disable buttons and enable weight input
             this.service.setButtonEnable(false);
-            this.service.setWeightScaleVisible(true);
+            this.service.setNumPadEnable(true);
+
+            //next instruction
+            this.service.setInstructionMsg(2);
 
         }else if(e.getSource() == b4){
 
@@ -66,7 +75,10 @@ public class LocationPanelController implements ActionListener {
 
             //disable buttons and enable weight input
             this.service.setButtonEnable(false);
-            this.service.setWeightScaleVisible(true);
+            this.service.setNumPadEnable(true);
+
+            //next instruction
+            this.service.setInstructionMsg(2);
 
         }else if(e.getSource() == b5){
 
@@ -75,7 +87,10 @@ public class LocationPanelController implements ActionListener {
 
             //disable buttons and enable weight input
             this.service.setButtonEnable(false);
-            this.service.setWeightScaleVisible(true);
+            this.service.setNumPadEnable(true);
+
+            //next instruction
+            this.service.setInstructionMsg(2);
 
         }else if(e.getSource() == cancel){
 
@@ -84,13 +99,12 @@ public class LocationPanelController implements ActionListener {
 
             //disable weight scale enter and enable buttons for new selection
             this.service.setButtonEnable(true);
-            this.service.setWeightScaleVisible(false);
+            this.service.setNumPadEnable(true);
 
-            this.service.setTextField(false);
-            this.service.setTextField(true);
+            this.service.setWeightText("clear");
 
-            //reset any errors if any occured
-            this.service.setError(3);
+            //reset instructions
+            this.service.setInstructionMsg(1);
 
         }else{
         }//fi
