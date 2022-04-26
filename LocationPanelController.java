@@ -8,14 +8,13 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-public class Controller implements ActionListener {
+public class LocationPanelController implements ActionListener {
 
     //declare instance variables
     private MailService service;
-    private JButton b1, b2, b3, b4, b5, enter, cancel;
-    private JTextField weight;
+    private JButton b1, b2, b3, b4, b5, cancel;
 
-    public Controller(MailService model, JButton button1, JButton button2, JButton button3, JButton button4, JButton button5, JButton enterButton, JButton cancelButton, JTextField enterWight){
+    public Controller(MailService model, JButton button1, JButton button2, JButton button3, JButton button4, JButton button5, JButton cancelButton){
 
         //attach model to controller
         this.service = model;
@@ -26,9 +25,7 @@ public class Controller implements ActionListener {
         this.b3 = button3;
         this.b4 = button4;
         this.b5 = button5;
-        this.enter = enterButton;
         this.cancel = cancelButton;
-        this.weight = enterWight;
 
     }//contructor
 
@@ -79,33 +76,6 @@ public class Controller implements ActionListener {
             //disable buttons and enable weight input
             this.service.setButtonEnable(false);
             this.service.setWeightScaleVisible(true);
-
-        }else if(e.getSource() == enter){
-
-            //outputs recipt for user if valid weight input
-            try{
-
-                //attempt to convert String to double
-                this.service.setWeight(Double.parseDouble(this.weight.getText()));
-
-                //ensure weight is a positive value
-                if (this.service.getWeight() <=0){
-
-                    this.service.setError(1);
-
-                }else{
-
-                    //get recipt for user
-                    this.service.recipt();
-
-                }//fi
-
-            }catch (NumberFormatException n){
-
-                this.service.setError(1);
-
-            }//yrt
-
 
         }else if(e.getSource() == cancel){
 

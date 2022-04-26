@@ -34,8 +34,20 @@ public class NumPadPanel extends JPanel{
     private JButton clearNum = new JButton("Clear"); //clears getWeight if error
     private JButton enterNum = new JButton("Enter"); //enters value in getWeight
 
+    //constructor
+    public NumPadPanel(MailService newTransaction){
+
+        super();
+        this.service = newTransaction;
+
+        this.createPanel();
+        this.registerControllers();
+        this.update();
+
+    }//end of constructor
+
     //put panel together
-    private JPanel createPanel(){
+    private void createPanel(){
 
         //add layout manager
         this.setLayout();
@@ -60,8 +72,6 @@ public class NumPadPanel extends JPanel{
         this.numPadPanel.add(this.numPad, BorderLayout.WEST);
         this.numPadPanel.add(this.enterNum, BorderLayout.CENTER);
 
-        return(this.numPadPanel);
-
     }//end of createPanel
 
     //set layouts of panels
@@ -84,13 +94,6 @@ public class NumPadPanel extends JPanel{
         this.getWeight.setPreferredSize(new Dimension(this.numPadPanel.getWidth(),100));
 
     }//end of setAttributes
-
-    //Accessor method: get panel for overall GUI
-    public JPanel getNumPadPanel(){
-
-        return(this.createPanel());
-
-    }//end of getNumPadPanel
 
     public void registerControllers(){
 
