@@ -14,7 +14,7 @@ public class LocationPanelController implements ActionListener {
     private MailService service;
     private JButton b1, b2, b3, b4, b5, cancel;
 
-    public Controller(MailService model, JButton button1, JButton button2, JButton button3, JButton button4, JButton button5, JButton cancelButton){
+    public LocationPanelController(MailService model, JButton button1, JButton button2, JButton button3, JButton button4, JButton button5, JButton cancelButton){
 
         //attach model to controller
         this.service = model;

@@ -108,7 +108,7 @@ public class LocationPanel extends JPanel{
     private void registerControllers(){
 
         //create controller to get input from JComponents
-        Controller buttonControl = new Controller(this.service, this.b1, this.b2, this.b3, this.b4, this.b5, this.cancel);
+        LocationPanelController buttonControl = new LocationPanelController(this.service, this.b1, this.b2, this.b3, this.b4, this.b5, this.cancel);
         
         //add action listeners to JButtons and JTextFields so they can control program
         this.b1.addActionListener(buttonControl);
@@ -121,7 +121,7 @@ public class LocationPanel extends JPanel{
     }//end of registerControllers
 
     //updates components as needed
-    private void update(){
+    public void update(){
 
         //sets section of GUI visible or invisible
         this.cancel.setVisible(this.service.getWeightScaleVisible());
