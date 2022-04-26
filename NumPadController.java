@@ -1,6 +1,6 @@
 /*  NumPadController
     Created by: Amber R
-    Last Modified: 13/04/22
+    Last Modified: 26/04/22
     Controller for NumPad components
 */
 
@@ -44,7 +44,6 @@ public class NumPadController implements ActionListener{
         if(e.getSource() == this.s0){
 
             this.service.setWeightText("0");
-
 
         }else if(e.getSource() == this.s1){
 
@@ -93,7 +92,6 @@ public class NumPadController implements ActionListener{
         }else if(e.getSource() == this.enter){
 
             this.service.setNumPadEnable(false);
-
 
         }else{
         }//fi
