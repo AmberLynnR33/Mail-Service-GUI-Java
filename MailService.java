@@ -20,7 +20,8 @@ public class MailService extends Object{
 
     private String[] locations = new String[5]; //name of all locations mail to
 
-    private String instructionMsg; //message instructing user of what to do, or any errors
+    private String [] instructionMsg = new String[4]; //message instructing user of what to do, or any errors
+    private int currentInstruction; //current message to be displayed
     private boolean clearTextField; //clears text field if program reset
 
     private int location; //location user is shipping to
@@ -45,7 +46,8 @@ public class MailService extends Object{
         this.generateBaseCost();
         this.generateShippingCosts();
         this.generateLocationNames();
-        this.instructionMsg = "Welcome to ADP. Please enter the destination your package is being sent to.";
+        this.generateInstructions();
+        this.currentInstruction = 0;
         this.buttonEnable = true;
         this.numPadEnable = false;
         this.weightText.append(" ");
@@ -102,6 +104,15 @@ public class MailService extends Object{
 
     }//generateLocationNames
 
+    private void generateInstructions(){
+
+        instructionMsg[0] = "Welcome to ADP. Please enter the destination your package is being sent to.";
+        instructionMsg[1] = "Please enter the package weight, with the panel on the right.";
+        instructionMsg[2] = "Please enter a valid weight and try again.";
+        instructionMsg[3] = "Processing error. Please try again.";
+
+    }//end of generateInstructions
+
     //accessor method to get costs array
     public int[] getCosts(){
 
@@ -153,7 +164,7 @@ public class MailService extends Object{
     //accessor method to check if error message should be displayed
     public String getInstruction(){
 
-        return this.instructionMsg;
+        return this.instructionMsg[currentInstruction];
 
     }//getErrorMessage
 
@@ -181,22 +192,7 @@ public class MailService extends Object{
     //set error message to be displayed if user inputs invalid data, or error with program
     public void setInstructionMsg(int code){
 
-        //sets what instruction to display on screen
-        switch(code){
-
-            case 1:
-                this.instructionMsg = "Welcome to ADP. Please enter the destination your package is being sent to.";
-
-            case 2:
-                this.instructionMsg = "Please enter the package weight, with the panel on the right.";
-
-            case 3:
-                this.instructionMsg = "Please enter a valid weight and try again.";
-            
-            default:
-                this.instructionMsg = "Processing error. Please try again.";
-
-        }//hctiws
+        this.currentInstruction = code;
 
         //update GUI to display message
         this.view.update();

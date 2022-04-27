@@ -42,7 +42,7 @@ public class LocationPanelController implements ActionListener {
             this.service.setNumPadEnable(true);
 
             //next instruction
-            this.service.setInstructionMsg(2);
+            this.service.setInstructionMsg(1);
 
         }else if(e.getSource() == b2){
 
@@ -54,7 +54,7 @@ public class LocationPanelController implements ActionListener {
             this.service.setNumPadEnable(true);
 
             //next instruction
-            this.service.setInstructionMsg(2);
+            this.service.setInstructionMsg(1);
 
         }else if(e.getSource() == b3){
 
@@ -66,7 +66,7 @@ public class LocationPanelController implements ActionListener {
             this.service.setNumPadEnable(true);
 
             //next instruction
-            this.service.setInstructionMsg(2);
+            this.service.setInstructionMsg(1);
 
         }else if(e.getSource() == b4){
 
@@ -78,7 +78,7 @@ public class LocationPanelController implements ActionListener {
             this.service.setNumPadEnable(true);
 
             //next instruction
-            this.service.setInstructionMsg(2);
+            this.service.setInstructionMsg(1);
 
         }else if(e.getSource() == b5){
 
@@ -90,7 +90,7 @@ public class LocationPanelController implements ActionListener {
             this.service.setNumPadEnable(true);
 
             //next instruction
-            this.service.setInstructionMsg(2);
+            this.service.setInstructionMsg(1);
 
         }else if(e.getSource() == cancel){
 
@@ -104,7 +104,7 @@ public class LocationPanelController implements ActionListener {
             this.service.setWeightText("clear");
 
             //reset instructions
-            this.service.setInstructionMsg(1);
+            this.service.setInstructionMsg(0);
 
         }else{
         }//fi
