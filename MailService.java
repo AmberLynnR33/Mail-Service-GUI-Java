@@ -34,7 +34,7 @@ public class MailService extends Object{
     private boolean buttonEnable; //enable or disable location buttons
     private boolean numPadEnable; //enable or disable number pad
 
-    private StringBuffer weightText; //what shows up on weight screen
+    private StringBuffer weightText = new StringBuffer(); //what shows up on weight screen
 
     private PrintWriter recipt; //prints recipt
 
@@ -45,9 +45,10 @@ public class MailService extends Object{
         this.generateBaseCost();
         this.generateShippingCosts();
         this.generateLocationNames();
-        this.setInstructionMsg(1);
+        this.instructionMsg = "Welcome to ADP. Please enter the destination your package is being sent to.";
         this.buttonEnable = true;
         this.numPadEnable = false;
+        this.weightText.append(" ");
 
     }//mailService
 
@@ -197,7 +198,7 @@ public class MailService extends Object{
 
         }//hctiws
 
-        //update GUI to display error message
+        //update GUI to display message
         this.view.update();
 
     }//setError
@@ -232,7 +233,7 @@ public class MailService extends Object{
 
             //clear
             this.weightText.setLength(0);
-            this.weightText.append("");
+            this.weightText.append(" ");
 
         }else{
 
