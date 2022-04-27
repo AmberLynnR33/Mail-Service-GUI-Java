@@ -25,7 +25,6 @@ public class LocationPanel extends JPanel{
     private JButton b4 = new JButton(); //select location 4
     private JButton b5 = new JButton(); //select location 5
 
-    private JButton enter = new JButton(); //allows user to enter all input to get recipt
     private JButton cancel = new JButton(); //resets screen so user can restart selection
 
     //constructor
@@ -55,7 +54,6 @@ public class LocationPanel extends JPanel{
         this.buttons.add(b3);
         this.buttons.add(b4);
         this.buttons.add(b5);
-        this.buttons.add(enter);
         this.buttons.add(cancel);
 
         this.add(chart, BorderLayout.NORTH);
@@ -94,9 +92,6 @@ public class LocationPanel extends JPanel{
 
         this.b5.setText("5");
         this.b5.setPreferredSize(new Dimension(100,25));
-
-        this.enter.setText("Enter");
-        this.enter.setPreferredSize(new Dimension(100, 25));
 
         this.cancel.setText("Cancel");
         this.cancel.setPreferredSize(new Dimension(100,25));
