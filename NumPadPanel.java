@@ -12,10 +12,9 @@ public class NumPadPanel extends JPanel{
     private MailService service;
 
     //declare components
-    private JPanel numPadPanel = new JPanel(); //overall panel
-    private JPanel numPad = new JPanel();
-    private BorderLayout numPadPanelLayout;
-    private GridLayout numPadLayout;
+    private JPanel numPad = new JPanel(); //panel for numbers
+    private BorderLayout numPadPanelLayout; //layout manager for NumPadPanel
+    private GridLayout numPadLayout; //layout manager for numbers
 
     private JLabel getWeight = new JLabel(); //allows user to enter weight
 
@@ -68,9 +67,9 @@ public class NumPadPanel extends JPanel{
         this.numPad.add(this.clearNum);
 
         //add components to overall number pad
-        this.numPadPanel.add(this.getWeight, BorderLayout.NORTH);
-        this.numPadPanel.add(this.numPad, BorderLayout.WEST);
-        this.numPadPanel.add(this.enterNum, BorderLayout.CENTER);
+        this.add(this.getWeight, BorderLayout.NORTH);
+        this.add(this.numPad, BorderLayout.WEST);
+        this.add(this.enterNum, BorderLayout.CENTER);
 
     }//end of createPanel
 
@@ -83,7 +82,7 @@ public class NumPadPanel extends JPanel{
 
         //layout of overall panel
         this.numPadPanelLayout = new BorderLayout();
-        this.numPadPanel.setLayout(this.numPadPanelLayout);
+        this.setLayout(this.numPadPanelLayout);
 
     }//end of setLayout()
 
@@ -91,7 +90,7 @@ public class NumPadPanel extends JPanel{
     private void setAttributes(){
 
         //size
-        this.getWeight.setPreferredSize(new Dimension(this.numPadPanel.getWidth(),100));
+        this.getWeight.setPreferredSize(new Dimension(this.getWidth(),100));
 
     }//end of setAttributes
 

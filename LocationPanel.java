@@ -13,7 +13,6 @@ public class LocationPanel extends JPanel{
     //declare attributes
     private MailService service;
 
-    private JPanel main = new JPanel();
     private JPanel buttons = new JPanel();
     private BorderLayout mainLayout;
     private GridLayout buttonsLayout;
@@ -59,9 +58,9 @@ public class LocationPanel extends JPanel{
         this.buttons.add(enter);
         this.buttons.add(cancel);
 
-        this.main.add(chart, BorderLayout.NORTH);
-        this.main.add(this.buttons, BorderLayout.CENTER);
-        this.main.add(this.instruction, BorderLayout.SOUTH);
+        this.add(chart, BorderLayout.NORTH);
+        this.add(this.buttons, BorderLayout.CENTER);
+        this.add(this.instruction, BorderLayout.SOUTH);
 
     }//layoutPanel
 
@@ -69,7 +68,7 @@ public class LocationPanel extends JPanel{
     private void setLayout(){
 
         this.mainLayout = new BorderLayout();
-        this.main.setLayout(this.mainLayout);
+        this.setLayout(this.mainLayout);
 
         this.buttonsLayout = new GridLayout(1,7);
         this.buttons.setLayout(this.buttonsLayout);
