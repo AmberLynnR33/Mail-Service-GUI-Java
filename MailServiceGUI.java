@@ -18,15 +18,32 @@ public class MailServiceGUI extends JPanel{
     //constructor
     public MailServiceGUI(MailService newTransaction){
 
+        //connect model to GUI
         super();
         this.service = newTransaction;
-        this.service.setGUI(this);
+        
+        //set up panels and add them to main panel
         this.locationPane = new LocationPanel(newTransaction);
         this.numPadPane = new NumPadPanel(newTransaction);
-        this.service.setInstructionMsg(1); 
+        this.layoutPanel();
+
+        //connect GUI to model and display it
+        this.service.setGUI(this);
         this.update();
 
     }//end of constructor
+
+    //layout JPanel
+    private void layoutPanel(){
+
+        //add JPanels to main JPanel
+        this.setLayout(new BorderLayout());
+
+        this.add(this.locationPane, BorderLayout.WEST);
+        this.add(this.numPadPane, BorderLayout.EAST);
+
+
+    }//end of layoutPanel
 
     //update whole GUI when change occurs
     public void update(){

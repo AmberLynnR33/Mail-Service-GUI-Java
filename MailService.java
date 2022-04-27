@@ -45,6 +45,7 @@ public class MailService extends Object{
         this.generateBaseCost();
         this.generateShippingCosts();
         this.generateLocationNames();
+        this.setInstructionMsg(1);
         this.buttonEnable = true;
         this.numPadEnable = false;
 
