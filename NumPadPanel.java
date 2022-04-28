@@ -5,7 +5,9 @@
 */
 
 import javax.swing.*;
+import javax.swing.border.*;
 import java.awt.*;
+
 
 public class NumPadPanel extends JPanel{
 
@@ -17,6 +19,7 @@ public class NumPadPanel extends JPanel{
     private GridLayout numPadLayout; //layout manager for numbers
 
     private JLabel getWeight = new JLabel(); //allows user to enter weight
+    Border weightBorder; //border for weight
 
     private JButton select1 = new JButton("1"); //number 1
     private JButton select2 = new JButton("2"); //number 2
@@ -90,7 +93,12 @@ public class NumPadPanel extends JPanel{
     private void setAttributes(){
 
         //size
-        this.getWeight.setPreferredSize(new Dimension(this.getWidth(),100));
+        this.getWeight.setPreferredSize(new Dimension(this.getWidth(),60));
+
+        //attributes of textfield
+        this.getWeight.setHorizontalAlignment(JLabel.RIGHT);
+        this.weightBorder = BorderFactory.createBevelBorder(BevelBorder.LOWERED);
+        this.getWeight.setBorder(weightBorder);
 
     }//end of setAttributes
 

@@ -21,8 +21,8 @@ public class StartUp{
 
         //set JFrame
         a.setTitle("All Day Postal Service");
-        a.setLocation(250, 250);
-        a.setSize(650,700);
+        a.setLocation(1,1);
+        a.setSize(800,210);
         a.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         a.setContentPane(userScreen);
         a.setVisible(true);

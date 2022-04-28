@@ -1,5 +1,5 @@
 /*  LocationChart
-    Last Modified: Jan 26, 2022
+    Last Modified: 0427/22
     Author: Amber R
     Custom JComponent of chart for locations that can be mailed to
 */
@@ -24,7 +24,7 @@ public class LocationChart extends JComponent{
     this.destinationList = locationList;
 
     //set size of component
-    this.setPreferredSize(new Dimension(621,131));
+    this.setPreferredSize(new Dimension(500,131));
 
   }
 
@@ -60,7 +60,7 @@ public class LocationChart extends JComponent{
      }//rof
 
     //draw cost chart lines
-    g.drawLine(1, 26, 620, 26);
+    g.drawLine(1, 26, 500, 26);
     g.drawLine(35, 1, 35, 130);
     g.drawLine(250, 1, 250, 130);
 

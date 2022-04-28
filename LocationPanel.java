@@ -57,8 +57,8 @@ public class LocationPanel extends JPanel{
         this.buttons.add(cancel);
 
         this.add(chart, BorderLayout.NORTH);
-        this.add(this.buttons, BorderLayout.CENTER);
         this.add(this.instruction, BorderLayout.SOUTH);
+        this.add(this.buttons, BorderLayout.CENTER);
 
     }//layoutPanel
 
@@ -79,22 +79,22 @@ public class LocationPanel extends JPanel{
 
         //set button text and size
         this.b1.setText("1");
-        this.b1.setPreferredSize(new Dimension(100,25));
+        this.b1.setPreferredSize(new Dimension(85,25));
 
         this.b2.setText("2");
-        this.b2.setPreferredSize(new Dimension(100,25));
+        this.b2.setPreferredSize(new Dimension(85,25));
 
         this.b3.setText("3");
-        this.b3.setPreferredSize(new Dimension(100,25));
+        this.b3.setPreferredSize(new Dimension(85,25));
 
         this.b4.setText("4");
-        this.b4.setPreferredSize(new Dimension(100,25));
+        this.b4.setPreferredSize(new Dimension(85,25));
 
         this.b5.setText("5");
-        this.b5.setPreferredSize(new Dimension(100,25));
+        this.b5.setPreferredSize(new Dimension(85,25));
 
         this.cancel.setText("Cancel");
-        this.cancel.setPreferredSize(new Dimension(100,25));
+        this.cancel.setPreferredSize(new Dimension(85,25));
 
     }//end of setAttributes
 

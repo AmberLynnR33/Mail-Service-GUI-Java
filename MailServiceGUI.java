@@ -6,6 +6,8 @@
 
 //import classes
 import javax.swing.*;
+import javax.swing.plaf.DimensionUIResource;
+
 import java.awt.*;
 
 public class MailServiceGUI extends JPanel{
@@ -40,8 +42,12 @@ public class MailServiceGUI extends JPanel{
         this.setLayout(new BorderLayout());
 
         this.add(this.locationPane, BorderLayout.WEST);
-        this.add(this.numPadPane, BorderLayout.EAST);
+        this.add(this.numPadPane, BorderLayout.CENTER);
 
+        //set panel size
+        this.setPreferredSize(new Dimension(750, 200));
+        this.locationPane.setSize(new Dimension(500, this.getHeight()));
+        this.numPadPane.setSize(new Dimension(this.getWidth() - 500, this.getHeight()));
 
     }//end of layoutPanel
 
