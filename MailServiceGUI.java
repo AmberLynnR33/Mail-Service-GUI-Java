@@ -6,7 +6,6 @@
 
 //import classes
 import javax.swing.*;
-import javax.swing.plaf.DimensionUIResource;
 
 import java.awt.*;
 

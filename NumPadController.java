@@ -92,6 +92,7 @@ public class NumPadController implements ActionListener{
         }else if(e.getSource() == this.enter){
 
             this.service.setNumPadEnable(false);
+            this.service.completeInteraction();
 
         }else{
         }//fi

@@ -22,7 +22,6 @@ public class MailService extends Object{
 
     private String [] instructionMsg = new String[4]; //message instructing user of what to do, or any errors
     private int currentInstruction; //current message to be displayed
-    private boolean clearTextField; //clears text field if program reset
 
     private int location; //location user is shipping to
     private double weight; //weight of package
@@ -43,14 +42,18 @@ public class MailService extends Object{
     public MailService(){
 
         super();
+
+        //initialize array data
         this.generateBaseCost();
         this.generateShippingCosts();
         this.generateLocationNames();
         this.generateInstructions();
+
+        //initialize attributes
         this.currentInstruction = 0;
         this.buttonEnable = true;
         this.numPadEnable = false;
-        this.weightText.append(" ");
+        this.weightText.append("");
 
     }//mailService
 
@@ -132,7 +135,8 @@ public class MailService extends Object{
 
         return this.locations[location];
 
-    }
+    }//end of getNameLocation
+
 
     //accessor method for weight of package
     public double getWeight(){
@@ -168,13 +172,6 @@ public class MailService extends Object{
 
     }//getErrorMessage
 
-    //accessor method to check if text field needs cleared
-    public boolean getClearTextField(){
-
-        return clearTextField;
-
-    }//getClearTextField
-
     //change location to location user wants to send letter to
     public void setLocation(int locationCode){
 
@@ -182,12 +179,35 @@ public class MailService extends Object{
 
     }//setLocation
 
-    //input the weight of user package
-    public void setWeight(double packageWeight){
+    //converts what user has input as the weight to a weight value
+    private boolean setWeight(){
 
-        this.weight = packageWeight;
+        //declare variables
+        boolean canSetWeight; //T if weight was converted successfully, F is not
 
-    }//setWeight
+        try{
+
+            this.weight = Double.parseDouble(this.weightText.toString().trim());
+            canSetWeight = true;
+
+            //ensure value is not zero
+            if(this.weight == 0.0){
+
+                this.setInstructionMsg(2);
+                canSetWeight = false;
+
+            }//fi
+
+        }catch(NumberFormatException e){
+
+            this.setInstructionMsg(2);
+            canSetWeight = false;
+
+        }//yrt
+
+        return(canSetWeight);
+
+    }//end of setWeight
 
     //set error message to be displayed if user inputs invalid data, or error with program
     public void setInstructionMsg(int code){
@@ -229,7 +249,7 @@ public class MailService extends Object{
 
             //clear
             this.weightText.setLength(0);
-            this.weightText.append(" ");
+            this.weightText.append("");
 
         }else{
 
@@ -249,7 +269,7 @@ public class MailService extends Object{
         int timesWeight;
 
         //calculate how many 100g increments of package to pay for from weight
-        timesWeight = (int)(Math.ceil(weight/100));
+        timesWeight = (int)(Math.ceil(this.weight/100));
 
         //set instance variable
         this.subtotal = this.costs[location] * (int)(timesWeight);
@@ -270,8 +290,20 @@ public class MailService extends Object{
 
     }//calculateTotal
 
+    //completes transation for user if they've entered a proper weight
+    public void completeInteraction(){
+
+        //only completes interaction if successfully converted weight
+        if(setWeight()){
+
+            this.recipt();
+
+        }//fi
+
+    }//end of completeInteraction
+
     //get information to print recipt (total, package number, and print recipt)
-    public void recipt(){
+    private void recipt(){
 
         this.calculateSubtotal();
         this.calcualteTax();
